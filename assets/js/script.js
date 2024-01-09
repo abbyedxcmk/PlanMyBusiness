@@ -1,11 +1,15 @@
-const taskData = {};
+let taskData = {};
 const currentDay = dayjs().format('DD-MM-YY');
-//taskData[currentDay] = {};
 
 // check if the task manager data exist in the local storage
 let savedData = localStorage.getItem('taskManager');
 if (savedData) {
     savedData = JSON.parse(savedData);
+    if (savedData[currentDay]) {
+        taskData = savedData[currentDay];
+    } else {
+        taskData = {};
+    }
 } else {
     savedData ={};
 }
@@ -39,14 +43,15 @@ function refreshTable() {
 }
 
 $('.saveBtn').click(function (e) {
-    if (savedData[currentDay]) {
-        
-    }
+    
     const clickedInput = $(this).prev();
     const id = clickedInput.attr('id');
     const value = clickedInput.val();
     if (value) {
-        taskData[currentDay][id] = value;
-    }
+        taskData[id] = value; 
+        savedData[currentDay] = taskData;
+        localStorage.setItem('taskManager', JSON.stringify(savedData));
+    }      
 })
+
 
