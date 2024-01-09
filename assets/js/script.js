@@ -3,3 +3,11 @@ $(document).ready(function () {
 });
 
 
+function refreshTable() {
+    const rows = $('.row');
+    let hour = dayjs().format('H');
+    for (row of rows) {
+        console.log(row);
+
+    }
+}
