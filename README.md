@@ -12,5 +12,6 @@ Deployment details
 ![Am I Responsive image](./assets/images/res.jpg)
 
 
-[link to the deployed page](https://github.com/abbyedxcmk/PlanMyBusiness)
+[link to the deployed page](https://abbyedxcmk.github.io/PlanMyBusiness/)
 
+[link to the github repo](https://github.com/abbyedxcmk/PlanMyBusiness)
