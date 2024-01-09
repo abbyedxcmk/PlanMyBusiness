@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#currentDay').text(dayjs().format('dddd, MMMM D'));
+    refreshTable();
 });
 
 
@@ -18,3 +19,8 @@ function refreshTable() {
         
     })
 }
+
+$('.saveBtn').click(function(e) {
+const clickedInput = $(this).prev();
+console.log(clickedInput.attr('id'), clickedInput.val());
+})
