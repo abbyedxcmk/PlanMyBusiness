@@ -32,15 +32,28 @@ header {
 }
 
 .row {
+  /* display: flex;
+  flex-direction: row; */
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
 
 .hour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  margin-bottom: 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  width: 70%;
 }
 
 .past {
@@ -59,6 +72,7 @@ header {
 }
 
 .saveBtn {
+  width: 100px;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
