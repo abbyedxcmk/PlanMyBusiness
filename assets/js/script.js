@@ -11,7 +11,7 @@ if (savedData) {
         taskData = {};
     }
 } else {
-    savedData ={};
+    savedData = {};
 }
 
 $(document).ready(function () {
@@ -31,27 +31,34 @@ function refreshTable() {
             $(row.children[1]).addClass('present');
         } else {
             $(row.children[1]).addClass('future');
-        } 
+        }
         // Update input field if there is a task previously saved
         if (savedData[currentDay]) {
-         if (savedData[currentDay][currentInput.id]) {
-            $(row.children[1]).val(savedData[currentDay][currentInput.id]);
-         }
+            if (savedData[currentDay][currentInput.id]) {
+                $(row.children[1]).val(savedData[currentDay][currentInput.id]);
+            }
         }
-        
+
     })
 }
 
 $('.saveBtn').click(function (e) {
-    
+
     const clickedInput = $(this).prev();
     const id = clickedInput.attr('id');
     const value = clickedInput.val();
-    if (value) {
-        taskData[id] = value; 
+    if (value.trim()) {
+        taskData[id] = value;
         savedData[currentDay] = taskData;
         localStorage.setItem('taskManager', JSON.stringify(savedData));
-    }      
+    } else {
+        if (savedData[currentDay][id]) {
+            delete taskData[id];
+            savedData[currentDay] = taskData;
+            localStorage.setItem('taskManager', JSON.stringify(savedData));
+        }
+
+    }
 })
 
 
