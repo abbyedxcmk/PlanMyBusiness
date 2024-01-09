@@ -27,12 +27,21 @@ function refreshTable() {
             $(row.children[1]).addClass('present');
         } else {
             $(row.children[1]).addClass('future');
+        } 
+        // Update input field if there is a task previously saved
+        if (savedData[currentDay]) {
+         if (savedData[currentDay][currentInput.id]) {
+            $(row.children[1]).val(savedData[currentDay][currentInput.id]);
+         }
         }
-
+        
     })
 }
 
 $('.saveBtn').click(function (e) {
+    if (savedData[currentDay]) {
+        
+    }
     const clickedInput = $(this).prev();
     const id = clickedInput.attr('id');
     const value = clickedInput.val();
