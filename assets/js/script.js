@@ -1,3 +1,7 @@
+const taskData = {};
+const currentDay = dayjs().format('DD-MM-YY');
+taskData[currentDay] = {};
+
 $(document).ready(function () {
     $('#currentDay').text(dayjs().format('dddd, MMMM D'));
     refreshTable();
@@ -22,5 +26,10 @@ function refreshTable() {
 
 $('.saveBtn').click(function(e) {
 const clickedInput = $(this).prev();
-console.log(clickedInput.attr('id'), clickedInput.val());
+const id = clickedInput.attr('id');
+const value = clickedInput.val();
+taskData[currentDay][id] = value;
+console.log(taskData);
+console.log(id, value);
 })
+
